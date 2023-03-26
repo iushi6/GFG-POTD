@@ -1,0 +1,23 @@
+class Solution {
+    public int unvisitedLeaves(int N, int leaves, int frogs[]) {
+        int []leave=new int [leaves];
+        int j=-1;
+        int count=0;
+        for(int i=0;i<N;i++){
+            if(j+frogs[i]<leaves&&leave[j+frogs[i]]==1){
+                continue;
+            }
+            while(j+frogs[i]<leaves){
+                if(leave[j+frogs[i]]==0){
+                    count++;
+                leave[j+frogs[i]]=1;
+            }
+                j=j+frogs[i];
+            }
+            j=-1;
+        }
+        return leaves-count;
+        
+       
+    }
+}
