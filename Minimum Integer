@@ -1,0 +1,21 @@
+// JAVA Solution ------------->
+
+class Solution {
+    public static int minimumInteger(int N, int[] A) {
+        
+        int min = Integer.MAX_VALUE;
+        long sum =0L;
+        
+        for(int i =0;i<N;i++){
+            sum+=A[i];
+        }
+        
+        for(int i =0;i<N;i++){
+            if((long)N*(long)A[i] >= sum){
+                min = Math.min(A[i],min);
+            }
+        }
+        return min;
+    }
+}
+   
