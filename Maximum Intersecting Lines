@@ -1,0 +1,20 @@
+class Solution {
+    public int maxIntersections(int[][] lines, int N) {
+    Map<Integer, Integer> endpoints = new TreeMap<>();
+
+    for (int[] line : lines) {
+        endpoints.put(line[0], endpoints.getOrDefault(line[0], 0) + 1);
+        endpoints.put(line[1] + 1, endpoints.getOrDefault(line[1] + 1, 0) - 1);
+    }
+
+    int intersections = 0;
+    int activeLines = 0;
+    for (int count : endpoints.values()) {
+        activeLines += count;
+        intersections = Math.max(intersections, activeLines);
+    }
+
+    return intersections;
+    
+    }
+}
