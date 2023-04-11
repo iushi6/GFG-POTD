@@ -1,0 +1,16 @@
+class Solution {
+    int solve(int a, int b, int c) {
+     
+      int maxLength = a + b + c;
+
+    int maxCount = Math.max(a, Math.max(b, c));
+
+    int remainingCount = maxLength - maxCount;
+
+    if (maxCount > remainingCount * 2 + 2) {
+        return -1;
+    } else {
+        return a + b + c;
+    }
+    }
+};
