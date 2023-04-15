@@ -1,0 +1,27 @@
+
+class Solution
+{
+    public static long totalTime(int n,int arr[],int time[])
+    {
+         HashMap<Integer,Integer>map = new HashMap();
+        map.put(arr[0],1);
+        long sum = 0;
+        for(int i=1;i<n;i++){
+            if(map.containsKey(arr[i])){
+                if(map.get(arr[i])==1){
+                    int t = time[arr[i]-1];
+                    map.put(arr[i],t);
+                    sum+=t;
+                }
+                else{
+                    sum+=map.get(arr[i]);
+                }
+            }
+            else{
+                map.put(arr[i],1);
+                sum+=1;
+            }
+        }
+        return sum;
+    }
+}
