@@ -1,0 +1,16 @@
+class Solution {
+        public static int minimumNumber(int N, int[] arr) {
+        boolean isOddElePresent = false;
+        for(int ele : arr) {
+            if(ele%2 == 1) {
+                isOddElePresent = true;
+            }
+        }
+        if(isOddElePresent == false) {
+            return 2; // GCD of 2 even element is 2,0
+        } else {
+            return 1; // GCD of even and odd is 1 and GCD of odd and odd is also 1.
+        }
+    }
+}
+    
